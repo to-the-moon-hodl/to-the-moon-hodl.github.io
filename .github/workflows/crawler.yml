@@ -1,0 +1,67 @@
+name: crawler
+on:
+  schedule:
+    # 每小时的第0分钟执行（UTC时间）
+    - cron: '13 * * * *'
+jobs:
+  build:
+
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        go-version: [ '1.24.2' ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Display Go version
+        run: go version
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Build
+        run: go build -trimpath -ldflags="-s -w" -o crawler cmd/crawler/crawler.go
+
+      - name: Checkout web branch
+        uses: actions/checkout@v4
+        with:
+          ref: web
+          path: deploy_temp
+
+      - name: Copy data files
+        run: |
+          mkdir -p ./data
+          cp ./deploy_temp/coinbase.json ./data/
+          cp ./deploy_temp/binance.json ./data/
+
+      - name: Start Coinbase
+        env:
+          MOOPROXY_USER: ${{ secrets.MOOPROXY_USER }}
+          MOOPROXY_PASSWORD: ${{ secrets.MOOPROXY_PASSWORD }}
+          MOOPROXY_CODE: ${{ secrets.MOOPROXY_CODE }}
+        run: ./crawler -target coinbase
+
+      - name: Start Binance
+        env:
+          MOOPROXY_USER: ${{ secrets.MOOPROXY_USER }}
+          MOOPROXY_PASSWORD: ${{ secrets.MOOPROXY_PASSWORD }}
+          MOOPROXY_CODE: ${{ secrets.MOOPROXY_CODE }}
+        run: ./crawler -target binance
+
+      - name: Copy data files
+        run: |
+          cp ./data/binance.json ./deploy_temp/
+          cp ./data/coinbase.json ./deploy_temp/
+
+      - name: Deploy to web branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_temp
+          publish_branch: web
+          force_orphan: true

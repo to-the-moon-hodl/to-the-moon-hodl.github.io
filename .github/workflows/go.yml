@@ -1,0 +1,38 @@
+name: Go
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'internal/**'
+      - '.github/workflows/go.yml'
+jobs:
+  build:
+
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        go-version: [ '1.24.2' ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Display Go version
+        run: go version
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Test
+        env:
+          MOOPROXY_USER: ${{ secrets.MOOPROXY_USER }}
+          MOOPROXY_PASSWORD: ${{ secrets.MOOPROXY_PASSWORD }}
+          MOOPROXY_CODE: ${{ secrets.MOOPROXY_CODE }}
+        run: go test ./...
+
+      - name: Build
+        run: go build -trimpath -ldflags="-s -w" -o crawler cmd/crawler/crawler.go

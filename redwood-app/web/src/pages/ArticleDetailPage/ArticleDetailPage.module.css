@@ -1,0 +1,92 @@
+/* 文章详情页面样式 */
+.articleDetailContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #1f6feb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+.articleDetail .articleTitle {
+  font-size: 2rem;
+  color: #0f4880;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.articleDetail .articleMeta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.articleDetail .articleImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.articleDetail .articleImage img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.articleDetail .articleContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  clear: both;
+  margin-top: 20px;
+}
+
+.articleDetail .articleContent h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #0f4880;
+}
+
+.articleDetail .articleContent p {
+  margin-bottom: 20px;
+}
+
+.articleDetail .articleContent ul,
+.articleDetail .articleContent ol {
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
+
+.articleDetail .articleContent img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.articleDetail .articleContent a {
+  color: #1f6feb;
+  text-decoration: none;
+}
+
+.articleDetail .articleContent a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,48 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'redwood-app/**'
+      - '.github/workflows/build.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: './redwood-app'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build project
+        run: yarn rw build web
+      - name: Checkout web branch
+        uses: actions/checkout@v4
+        with:
+          ref: web
+          path: ./redwood-app/deploy_temp
+
+      - name: Copy data files
+        run: |
+          pwd && ls && ls ../
+          cp ./deploy_temp/binance.json ./web/dist
+          cp ./deploy_temp/coinbase.json ./web/dist
+
+      - name: Deploy to web branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./redwood-app/web/dist
+          publish_branch: web
+          force_orphan: true
