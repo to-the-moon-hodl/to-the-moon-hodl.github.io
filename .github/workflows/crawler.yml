@@ -3,6 +3,7 @@ on:
   schedule:
     # 每小时的第0分钟执行（UTC时间）
     - cron: '13 * * * *'
+  workflow_dispatch: {}
 jobs:
   build:
 
