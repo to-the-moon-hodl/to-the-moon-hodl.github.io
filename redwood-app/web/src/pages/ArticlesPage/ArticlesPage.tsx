@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Link, routes, useParams } from '@redwoodjs/router'
+import { Link, routes, useParams, navigate } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import styles from './ArticlesPage.module.css'
@@ -120,9 +120,9 @@ const ArticlesPage = () => {
   const handleSourceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newSource = e.target.value
     if (newSource === 'all') {
-      window.location.href = routes.articles()
+      navigate(routes.articles())
     } else {
-      window.location.href = `/articles/${newSource}`
+      navigate(`/articles/${newSource}`)
     }
   }
 
