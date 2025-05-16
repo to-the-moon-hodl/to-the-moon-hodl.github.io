@@ -1,0 +1,164 @@
+/* 文章列表样式 */
+._articlesContainer_3euqk_2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+._articleCard_3euqk_8 {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+._articleCard_3euqk_8:hover {
+  transform: translateY(-5px);
+}
+
+._articleImage_3euqk_20 {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+._articleContent_3euqk_26 {
+  padding: 16px;
+}
+
+._articleTitle_3euqk_30 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0f4880;
+}
+
+._articleAuthor_3euqk_37,
+._articleDate_3euqk_38 {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+._articleExcerpt_3euqk_44 {
+  margin: 12px 0;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+._articleLink_3euqk_53 {
+  display: inline-block;
+  background-color: #1f6feb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+._articleLink_3euqk_53:hover {
+  background-color: #0d5dcb;
+}
+
+._articleSource_3euqk_68 {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* 分页样式 */
+._paginationContainer_3euqk_79 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+._pagination_3euqk_79 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+._pageButton_3euqk_96, ._pageNumber_3euqk_96 {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 40px;
+  text-align: center;
+  font-size: 14px;
+}
+
+._pageButton_3euqk_96:hover, ._pageNumber_3euqk_96:hover {
+  background-color: #e0e0e0;
+}
+
+._pageButton_3euqk_96:disabled {
+  background-color: #f9f9f9;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+._pageNumber_3euqk_96._active_3euqk_118 {
+  background-color: #1f6feb;
+  color: white;
+  border-color: #1f6feb;
+}
+
+._pageDots_3euqk_124 {
+  padding: 0 5px;
+  color: #666;
+}
+
+._pageInfo_3euqk_129 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 页面设置样式 */
+._pageSettings_3euqk_136 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+._settingsGroup_3euqk_146 {
+  display: flex;
+  align-items: center;
+}
+
+._pageSettings_3euqk_136 label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+._articlesPerPageSelect_3euqk_157,
+._sourceSelect_3euqk_158 {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}

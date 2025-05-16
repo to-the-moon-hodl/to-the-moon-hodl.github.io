@@ -1,0 +1,206 @@
+/* 首页样式 */
+._homeContainer_197qu_2 {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+._homeHeader_197qu_7 {
+  text-align: center;
+  padding: 40px 0;
+  margin-bottom: 30px;
+}
+
+._siteTitle_197qu_13 {
+  font-size: 2.5rem;
+  color: #1f6feb;
+  margin-bottom: 10px;
+}
+
+._siteSubtitle_197qu_19 {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+._homeIntro_197qu_26 {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+._introContent_197qu_34 h2 {
+  color: #0f4880;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+._introContent_197qu_34 p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+._exchangesSection_197qu_46 {
+  margin-bottom: 40px;
+}
+
+._exchangesSection_197qu_46 h2 {
+  text-align: center;
+  color: #0f4880;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+._exchangeCards_197qu_57 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+._exchangeCard_197qu_57 {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+._exchangeCard_197qu_57:hover {
+  transform: translateY(-5px);
+}
+
+._exchangeLogo_197qu_76 {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+._binanceLogo_197qu_86 {
+  background-color: #F0B90B;
+}
+
+._coinbaseLogo_197qu_90 {
+  background-color: #0052FF;
+}
+
+._exchangeInfo_197qu_94 {
+  padding: 20px;
+  flex: 1;
+}
+
+._exchangeInfo_197qu_94 h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #1f6feb;
+  font-size: 1.4rem;
+}
+
+._exchangeInfo_197qu_94 p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+._exchangeLink_197qu_111 {
+  display: inline-block;
+  color: #1f6feb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+._exchangeLink_197qu_111:hover {
+  color: #0d5dcb;
+  text-decoration: underline;
+}
+
+._featuresSection_197qu_124 {
+  margin-bottom: 40px;
+}
+
+._featuresSection_197qu_124 h2 {
+  text-align: center;
+  color: #0f4880;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+._featuresGrid_197qu_135 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+._featureItem_197qu_141 {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+._featureIcon_197qu_149 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+._featureItem_197qu_141 h3 {
+  margin-top: 0;
+  color: #1f6feb;
+  margin-bottom: 10px;
+}
+
+._featureItem_197qu_141 p {
+  color: #555;
+  margin: 0;
+}
+
+._homeFooter_197qu_165 {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  ._siteTitle_197qu_13 {
+    font-size: 2rem;
+  }
+
+  ._exchangeCard_197qu_57 {
+    flex-direction: column;
+  }
+
+  ._exchangeLogo_197qu_76 {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  ._featuresGrid_197qu_135 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  ._featuresGrid_197qu_135 {
+    grid-template-columns: 1fr;
+  }
+
+  ._homeHeader_197qu_7 {
+    padding: 20px 0;
+  }
+
+  ._siteTitle_197qu_13 {
+    font-size: 1.8rem;
+  }
+}
